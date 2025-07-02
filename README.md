@@ -131,31 +131,31 @@ In the next section we will relax certain assumptions to allow the adjusted esti
 
 ## **Coefficients in a complex framework**
 
+Consider the following framework: 
+- We have $𝑁≥2$ market factors in a cluster, $𝑛∈[2,𝑁]$ of them compose an index.
+- We assume that each index component market factor $𝑗=1,…,𝑛$ has some assigned weight ($𝑤_𝑗$), which is known <i>a priori</i>, and $\sum_{𝑗=1}^{𝑛} 𝑤_𝑗 = 1$
+- Furthermore, each market factor $𝑖=1,…,𝑁$ in a cluster has some assigned volatility ($𝜎_𝑖$) and beta ($𝛽_𝑖$), which are unknown <i>a priori</i>.
+- We assume that:
 
+$$ \forall_{𝑗=1,…,𝑛;𝑖=1,…,𝑁} {𝑤_𝑗, 𝜎_𝑖, 𝛽_𝑖 \gt 0} $$
 
+$$ \forall_{𝑗=1,…,𝑛} {𝑤_𝑗 𝛽_𝑗 ≤ \frac{1}{2} \sum_{𝑙=1}^{𝑛} 𝑤_𝑙 𝛽_𝑙} $$
 
+- Additionally, we assume the systematic component return follows a standard normal distribution, and all market factors’ returns follow a normal distribution with expected value 0 and variance $𝜎_𝑖^2$, that is:
 
+$$ 𝑟_𝑠 \sim 𝑁(0,1) $$
 
+$$ \forall_{𝑖=1,…,𝑁} {𝑟_𝑖 \sim 𝑁 \left( 0, 𝜎_𝑖^2 \right)} $$
 
+We want to calibrate coefficients of correlation with the systematic component for all market factors in a cluster over some time interval $𝑇$.
 
+Correlation with the systemic component return:
 
+$$ \forall_{𝑖=1,…,𝑁} {𝛽_𝑖 = 𝜌_{𝑟_𝑠,𝑟_𝑖} 𝜎_𝑖; 𝜌_{𝑟_𝑠,𝑟_𝑖} = \frac{𝛽_𝑖}{𝜎_𝑖}} $$
 
+Variance of the idiosyncratic component:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$$ \forall_{𝑖=1,…,𝑁} 𝑣𝑎𝑟 \left( 𝑟_𝑖 \right) = 𝑣𝑎𝑟 \left( 𝛽_𝑖 𝑟_𝑠 + 𝜀_𝑖 \right) = 𝜎_{𝑖}^{2} ⟹ 𝑣𝑎𝑟 \left( 𝜀_𝑖 \right) = 𝜎_{𝑖}^{2} − 𝜌_{𝑟_𝑠,𝑟_𝑖}^{2} 𝜎_{𝑖}^{2} = 𝜎_𝑖^2 \left( 1 − 𝜌_{𝑟_𝑠,𝑟_𝑖}^{2} \right) $$
 
 
 
