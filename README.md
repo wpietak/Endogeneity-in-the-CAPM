@@ -88,7 +88,7 @@ The first issue concerns only index components, while the second concerns all ma
 
 ## **Coefficients in a simple framework**
 
-Consider the following framework. We have $𝑁≥2$ market factors in a cluster, $𝑛∈[2,𝑁]$ of them compose an index. We assume all weights are equal, i.e., $𝑤_𝑗=\frac{1}{𝑛}$ for $𝑗=1,…,𝑛$, and all betas are equal, i.e., $𝛽_𝑖=𝛽$ for $𝑖=1,…,𝑁$. Additionally, we assume all market factors’ returns, as well as the systematic component return, follow a standard normal distribution, i.e., $𝑟_𝑠~𝑁(0,1)$ and $𝑟_𝑖~𝑁(0,1)$ for $𝑖=1,…,𝑁$. We want to calibrate coefficients of correlation with the systematic component for all market factors in a cluster over some time interval $𝑇$. 
+Consider the following framework. We have $𝑁≥2$ market factors in a cluster, $𝑛∈[2,𝑁]$ of them compose an index. We assume all weights are equal, i.e., $𝑤_𝑗=\frac{1}{𝑛}$ for $𝑗=1,…,𝑛$, and all betas are equal, i.e., $𝛽_𝑖=𝛽$ for $𝑖=1,…,𝑁$. Additionally, we assume all market factors’ returns, as well as the systematic component return, follow a standard normal distribution, i.e., $𝑟_𝑠 \sim 𝑁(0,1)$ and $𝑟_𝑖 \sim 𝑁(0,1)$ for $𝑖=1,…,𝑁$. We want to calibrate coefficients of correlation with the systematic component for all market factors in a cluster over some time interval $𝑇$. 
 
 Variance of the idiosyncratic component:
 
@@ -104,19 +104,68 @@ Covariance and correlation of a component market factor return:
 
 $$ 𝑐𝑜𝑣 \left( 𝑟_𝐼 , 𝑟_{𝑘≤𝑛} \right) = 𝐸 \left[ \left( 𝛽 𝑟_𝑠 + \frac{1}{𝑛} \sum_{𝑗=1}^{𝑛} 𝜀_𝑗 \right) \left( 𝛽 𝑟_𝑠 + 𝜀_{𝑘≤𝑛} \right) \right] = 𝐸 \left[ 𝛽^2 𝑟_{𝑠}^{2} + \frac{𝜀_{𝑘≤𝑛}^{2}}{𝑛} \right] = 𝛽^2 + \frac{1−𝛽^2}{𝑛} $$
 
-$$ 𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}} = \frac{𝛽^2 + \frac{1−𝛽^2}{𝑛}}{\sqrt{𝛽^2 + \frac{1−𝛽^2}{𝑛}}} = sqrt{\frac{(𝑛−1) 𝛽^2 + 1}{𝑛}} ⟹ 𝛽 = \sqrt{ \frac{ 𝑛 𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}}^{2} − 1}{𝑛−1} } $$
+$$ 𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}} = \frac{𝛽^2 + \frac{1−𝛽^2}{𝑛}}{\sqrt{𝛽^2 + \frac{1−𝛽^2}{𝑛}}} = \sqrt{\frac{(𝑛−1) 𝛽^2 + 1}{𝑛}} ⟹ 𝛽 = \sqrt{ \frac{ 𝑛 𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}}^{2} − 1}{𝑛−1} } $$
 
-Note that, since the volatilities of all market factors and of the systematic component are equal to 1, betas are equal to correlations
+Note that, since the volatilities of all market factors and of the systematic component are equal to 1, betas are equal to correlations, and thus: 
 
-$$ \tilde{ \hat{ 𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}} } } = \sqrt{ \frac{ 𝑛 \hat{ 𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}} }^{2} − 1}{𝑛−1} } $$
+$$ \rho_{𝑟_s, 𝑟_{𝑘≤𝑛}} = \sqrt{ \frac{ 𝑛 𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}}^{2} − 1}{𝑛−1} } $$
+
+Hence, we get the following unbiased estimator of the correlation with systematic component as a function of the obtained estimator of the correlation with its proxy (index):
+
+$$ \hat{\rho_{𝑟_s, 𝑟_{𝑘≤𝑛}}} = \sqrt{ \frac{ 𝑛 \hat{𝜌_{𝑟_𝐼, 𝑟_{𝑘≤𝑛}}}^{2} − 1}{𝑛−1} } $$ 
 
 Covariance and correlation of a non-component market factor return:
 
-$$ 𝑐𝑜𝑣 \left( 𝑟_𝐼 , 𝑟_{𝑘>𝑛} \right) = 𝐸 \left[ \left( 𝛽 𝑟_𝑠 + \frac{1}{𝑛} \sum_{𝑗=1}^{𝑛} 𝜀_𝑗 \right) \left( 𝛽 𝑟_𝑠 + 𝜀_{𝑘>𝑛} \right) \right] = 𝐸 \left[ 𝛽^2 𝑟_{𝑠}^{2} \right] = 𝛽^2 $$
+$$ 𝑐𝑜𝑣 \left( 𝑟_𝐼 , 𝑟_{𝑘 \gt 𝑛} \right) = 𝐸 \left[ \left( 𝛽 𝑟_𝑠 + \frac{1}{𝑛} \sum_{𝑗=1}^{𝑛} 𝜀_𝑗 \right) \left( 𝛽 𝑟_𝑠 + 𝜀_{𝑘 \gt 𝑛} \right) \right] = 𝐸 \left[ 𝛽^2 𝑟_{𝑠}^{2} \right] = 𝛽^2 $$
 
-$$ 𝜌_{𝑟_𝐼 , 𝑟_{𝑘>𝑛} } = \frac {𝛽^2/√(𝛽^2+(1−𝛽^2)/𝑛)⟹𝛽=√(𝜌_(𝑟_𝐼,𝑟_(𝑘>𝑛) ) 𝜎_𝐼 ) $$
+$$ 𝜌_{𝑟_𝐼, 𝑟_{𝑘 \gt 𝑛}} = \frac{𝛽^2}{\sqrt{𝛽^2 + \frac{1−𝛽^2}{𝑛}}} ⟹ 𝛽 = \sqrt{ \rho_{𝑟_𝐼, 𝑟_{𝑘 \gt 𝑛}} \sigma_I } = \rho_{𝑟_s, 𝑟_{𝑘 \gt 𝑛}} $$
 
-$$ ^𝑎𝑑𝑗 (𝜌_(𝑟_𝐼,𝑟_(𝑘>𝑛) ) ) ̂=√((𝜌_(𝑟_𝐼,𝑟_(𝑘>𝑛) ) ) ̂𝜎_𝐼 ) $$
+Then, analogously as before:
+
+$$ \hat{\rho_{𝑟_s, 𝑟_{𝑘>𝑛}}} = \sqrt{ \hat{\rho_{𝑟_𝐼, 𝑟_{𝑘 \gt 𝑛}}} \hat{\sigma_I} } $$ 
+
+It may seem counter-intuitive that we derive (adjusted) estimators of certain parameters using assumptions of the underlying distributions which determine these parameters. However, the goal here is to present the impact of endogeneity on the commonly used estimators and show that if these assumptions are satisfied, the proposed adjustments yield desirable results. Although such simplistic conditions cannot be assumed to hold in reality, they are very good for illustrative purposes, because they allow to present general tendencies in a straightforward way. This is done in notebook XXX. 
+
+In the next section we will relax certain assumptions to allow the adjustmed estimators to be applied in realistic conditions.
+
+
+## **Coefficients in a complex framework**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
