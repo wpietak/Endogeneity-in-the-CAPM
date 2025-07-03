@@ -124,7 +124,7 @@ Then, analogously as before:
 
 $$ \hat{\rho_{𝑟_s, 𝑟_{𝑘>𝑛}}} = \sqrt{ \hat{\rho_{𝑟_𝐼, 𝑟_{𝑘 \gt 𝑛}}} \hat{\sigma_I} } $$ 
 
-It may seem counter-intuitive that we derive (adjusted) estimators of certain parameters using assumptions of the underlying distributions which determine these parameters. However, the goal here is to present the impact of endogeneity on the commonly used estimators and show that if these assumptions are satisfied, the proposed adjustments yield desirable results. Although such simplistic conditions cannot be assumed to hold in reality, they are very good for illustrative purposes, because they allow to present general tendencies in a straightforward way. This is done in section 'Simple framework' in the notebook [Endogeneity_in_the_CAPM](/Endogeneity_in_the_CAPM.ipynb). 
+It may seem counter-intuitive that we derive (adjusted) estimators of certain coefficients using assumptions of the underlying distributions which determine these parameters. However, the goal here is to present the impact of endogeneity on the commonly used estimators and show that if these assumptions are satisfied, the proposed adjustments yield desirable results. Although such simplistic conditions cannot be assumed to hold in reality, they are very good for illustrative purposes, because they allow to present general tendencies in a straightforward way. This is done in section 'Simple framework' in the notebook [Endogeneity_in_the_CAPM](/Endogeneity_in_the_CAPM.ipynb). 
 
 In the next section we will relax certain assumptions to allow the adjusted estimators to be applied in realistic conditions.
 
