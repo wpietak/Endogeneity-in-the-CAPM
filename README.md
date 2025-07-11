@@ -34,7 +34,7 @@ where:
 
 Distinction into systematic component and idiosyncratic component is abstract. Return of the systemic component is unobservable (as is the idiosyncratic component). In reality we can only observe return of an index ($𝐼$), which is supposed to reflect the impact of systematic component. We assume that return of the index is a weighted average of the returns of $𝑛$ market factors belonging to the cluster:
 
-$$𝑟_𝐼 = 𝑟_1 𝑤_1 + 𝑟_2 𝑤_2 + … + 𝑟_𝑛 𝑤_𝑛 = \sum_{𝑗=1}^{𝑛} \left(𝛽_𝑗 𝑟_𝑠 + 𝜀_𝑗 \right) 𝑤_𝑗 = \sum_{𝑗=1}^{𝑛} \left(𝛽_𝑗×𝑟_𝑠 \right) 𝑤_𝑗 + \sum_{𝑗=1}^{𝑛} 𝜀_𝑗×𝑤_𝑗,$$
+$$𝑟_𝐼 = 𝑟_1 𝑤_1 + 𝑟_2 𝑤_2 + … + 𝑟_𝑛 𝑤_𝑛 = \sum_{𝑗=1}^{𝑛} \left(𝛽_𝑗 𝑟_𝑠 + 𝜀_𝑗 \right) 𝑤_𝑗 = \sum_{𝑗=1}^{𝑛} 𝛽_𝑗 𝑟_𝑠 𝑤_𝑗 + \sum_{𝑗=1}^{𝑛} 𝜀_𝑗 𝑤_𝑗,$$
 
 where:
 - $𝑟_𝐼$ – return of the index $𝐼$;
